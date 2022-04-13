@@ -22,9 +22,9 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-set(INC_MOC Inc/main.h)
-set(CPP_MOC Src/main.cpp)
-qt_wrap_cpp(INC_MOC)
+set(INC_MOC Inc/main.h Inc/game_base.h)
+set(CPP_MOC Src/main.cpp Src/game_base.cpp)
+qt_wrap_cpp(INC_MOC)git
 qt_wrap_cpp(CPP_MOC)
 
 set(INC_UI)
