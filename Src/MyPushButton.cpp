@@ -3,7 +3,7 @@
 //
 
 
-#include "mypushbutton.h"
+#include "MyPushButton.h"
 
 MyPushButton::MyPushButton(QString normalImg) {
     this->normalImgPath = normalImg;

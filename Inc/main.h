@@ -5,4 +5,10 @@
 #ifndef AGD_MAIN_H
 #define AGD_MAIN_H
 
+#include <QApplication>
+#include <QPushButton>
+#include <QWindow>
+
+#include "MyPushButton.h"
+
 #endif //AGD_MAIN_H
