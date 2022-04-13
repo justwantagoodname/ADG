@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.21)
+cmake_minimum_required(VERSION 3.20)
 project(AGD)
 
 set(CMAKE_CXX_STANDARD 17)
@@ -24,6 +24,9 @@ find_package(Qt6 COMPONENTS
 
 set(INC_MOC Inc/main.h Inc/game_base.h)
 set(CPP_MOC Src/main.cpp Src/game_base.cpp)
+
+include_directories("Inc")
+
 qt_wrap_cpp(INC_MOC)
 qt_wrap_cpp(CPP_MOC)
 
