@@ -27,9 +27,6 @@ set(CPP_MOC Src/main.cpp Src/game_base.cpp)
 
 include_directories("Inc")
 
-qt_wrap_cpp(INC_MOC)
-qt_wrap_cpp(CPP_MOC)
-
 set(INC_UI)
 qt_wrap_ui(INC_UI)
 
