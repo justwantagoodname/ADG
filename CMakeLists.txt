@@ -22,8 +22,8 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-set(INC_MOC Inc/main.h Inc/game_base.h)
-set(CPP_MOC Src/main.cpp Src/game_base.cpp)
+set(INC_MOC Inc/main.h Inc/game_base.h Inc/Config.h)
+set(CPP_MOC Src/main.cpp Src/game_base.cpp Src/Config.cpp)
 
 include_directories("Inc")
 
