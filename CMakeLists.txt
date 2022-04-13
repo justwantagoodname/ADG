@@ -22,6 +22,8 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
+include_directories("Inc")
+
 set(INC_MOC Inc/main.h)
 set(CPP_MOC Src/main.cpp)
 qt_wrap_cpp(INC_MOC)
