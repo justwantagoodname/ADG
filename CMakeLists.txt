@@ -29,7 +29,7 @@ set(CPP_MOC Src/main.cpp)
 qt_wrap_cpp(INC_MOC)
 qt_wrap_cpp(CPP_MOC)
 
-set(INC_UI)
+set(INC_UI Src/mypushbutton.cpp Inc/mypushbutton.h)
 qt_wrap_ui(INC_UI)
 
 add_executable(AGD ${CPP_MOC} ${INC_MOC} ${INC_UI})
