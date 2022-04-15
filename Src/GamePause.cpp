@@ -23,5 +23,5 @@ void GamePause::keyPressEvent(QKeyEvent *event) {
 
 void GamePause::paintEvent(QPaintEvent *) {
     QPainter painter(this);
-    painter.drawPixmap(0, 0, this->width(), this->height(), QPixmap(":/Res/dlg.png"));
+    painter.drawPixmap(0, 0, this->width(), this->height(), QPixmap("./Res/dlg.png"));
 }

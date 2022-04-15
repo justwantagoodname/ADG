@@ -5,7 +5,7 @@
 GameHelp::GameHelp(QWidget *parent) : QWidget(parent) {
     setWindowTitle("游戏帮助");
     resize(800, 550);
-    MyPushButton *back_btn = new MyPushButton(":/Res/back.png");//设置帮助按钮
+    MyPushButton *back_btn = new MyPushButton("./Res/back.png");//设置帮助按钮
     back_btn->setParent(this);
     back_btn->setFixedSize(180, 80);
     back_btn->setIconSize(QSize(180, 80));
@@ -23,5 +23,5 @@ GameHelp::GameHelp(QWidget *parent) : QWidget(parent) {
 
 void GameHelp::paintEvent(QPaintEvent *) {
     QPainter painter(this);
-    painter.drawPixmap(0, 0, 800, 550, QPixmap(":/Res/gamehelp.png"));
+    painter.drawPixmap(0, 0, 800, 550, QPixmap("./Res/gamehelp.png"));
 }
