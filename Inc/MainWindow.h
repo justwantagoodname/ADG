@@ -1,24 +1,20 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
-#ifndef AGD_MAINWINDOW_H
-#define AGD_MAINWINDOW_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QPainter>
-#include <QTimer>
-#include "Ui_MainWindow.h"
-#include "MyPushButton.h"
-#include "GameScene.h"
-#include "GameHelp.h"
+#include<QPainter>
+#include<QTimer>
+#include "ui_mainwindow.h"
+#include"mypushbutton.h"
+#include"gamescene.h"
+#include"gamehelp.h"
 
 QT_BEGIN_NAMESPACE
-namespace ui { class MainWindow; }
+namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     MainWindow(QWidget *parent = nullptr);
@@ -30,5 +26,4 @@ private:
 
     Ui::MainWindow *ui;
 };
-
-#endif //AGD_MAINWINDOW_H
+#endif // MAINWINDOW_H

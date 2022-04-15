@@ -1,22 +1,17 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
-#ifndef AGD_GAMEHELP_H
-#define AGD_GAMEHELP_H
+#ifndef GAMEHELP_H
+#define GAMEHELP_H
 
 #include <QMainWindow>
 #include <QWidget>
 #include<QPainter>
 
 class GameHelp : public QWidget {
-Q_OBJECT
+    Q_OBJECT
 public:
     explicit GameHelp(QWidget *parent = nullptr);
     void paintEvent(QPaintEvent *);
-signals:
-    void back();
+    signals:
+            void back();
 };
 
-
-#endif //AGD_GAMEHELP_H
+#endif // GAMEHELP_H

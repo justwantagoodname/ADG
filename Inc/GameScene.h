@@ -1,26 +1,26 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
-#ifndef AGD_GAMESCENE_H
-#define AGD_GAMESCENE_H
+#ifndef GAMESCENE_H
+#define GAMESCENE_H
 
 #include <QWidget>
-#include <QPainter>
-#include <QDebug>
-#include <QString>
-#include <QTimer>
-#include <QKeyEvent>
-#include <QDialog>
-#include "mary.h"
-#include "brick.h"
-#include "master.h"
-#include "pipe.h"
-#include "gamepause.h"
-#include "MyPushButton.h"
+#include<QPainter>
+#include<QDebug>
+#include<QString>
+#include<QTimer>
+#include<QKeyEvent>
+#include<QDialog>
+#include"mary.h"
+#include"brick.h"
+#include"unknown.h"
+#include"mushroom.h"
+#include"master.h"
+#include"pipe.h"
+#include"gamepause.h"
+#include"mypushbutton.h"
+#include"fire.h"
+#include"castle.h"
 
 class GameScene : public QWidget {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     explicit GameScene(QWidget *parent = nullptr);
@@ -36,6 +36,14 @@ public:
     bool is_win;
     QString key;
     Mary *mary;
+    Brick *brick;
+    Pipe *pipe;
+    Unknown *unknown;
+    MushRoom *mushroom;
+    GamePause *Pause;
+    Master *master;
+    Fire *fire;
+    Castle *castle;
 
     void paintEvent(QPaintEvent *);//绘图事件
     void keyPressEvent(QKeyEvent *event);//键盘按下
@@ -55,9 +63,9 @@ public:
     void Move_Collision();//移动碰撞检测
     void Game_Win();
 
-signals:
+    signals:
 private:
 
 };
 
-#endif //AGD_GAMESCENE_H
+#endif // GAMESCENE_H

@@ -1,7 +1,3 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
 #ifndef MYPUSHBUTTON_H
 #define MYPUSHBUTTON_H
 
@@ -11,7 +7,7 @@
 #include<QPropertyAnimation>
 
 class MyPushButton : public QPushButton {
-Q_OBJECT
+    Q_OBJECT
 public:
     MyPushButton(QString normalImg);
 
@@ -21,7 +17,7 @@ public:
 
     void zoom2();
 
-signals:
+    signals:
 
 };
 

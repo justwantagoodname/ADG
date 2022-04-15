@@ -1,11 +1,6 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
-#include <QTimer>
-
-#include "GameHelp.h"
-#include "MyPushButton.h"
+#include "gamehelp.h"
+#include"mypushbutton.h"
+#include<QTimer>
 
 GameHelp::GameHelp(QWidget *parent) : QWidget(parent) {
     setWindowTitle("游戏帮助");

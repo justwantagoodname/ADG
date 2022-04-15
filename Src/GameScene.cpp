@@ -1,8 +1,4 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
-#include "GameScene.h"
+#include "gamescene.h"
 
 GameScene::GameScene(QWidget *parent) : QWidget(parent) {
     setWindowTitle("超级玛丽");//设置标题
@@ -18,7 +14,8 @@ GameScene::GameScene(QWidget *parent) : QWidget(parent) {
 
 void GameScene::Pause_Init() {
     Pause = new GamePause();//初始化暂停窗口
-    MyPushButton *btn_continue = new MyPushButton(":/photo/continueGame.png");//添加继续按钮
+    MyPushButton *btn_continue = new MyPushButton(":/Res/continueGame.png");//添加继续按钮
+
     btn_continue->setParent(Pause);
     btn_continue->setFixedSize(150, 75);
     btn_continue->setIconSize(QSize(150, 75));
@@ -34,7 +31,7 @@ void GameScene::Pause_Init() {
             Pause->close();
         });
     });
-    MyPushButton *initGame = new MyPushButton(":/photo/initGame.png");//添加初始化窗口
+    MyPushButton *initGame = new MyPushButton(":/Res/initGame.png");//添加初始化窗口
     initGame->setParent(Pause);
     initGame->setFixedSize(150, 75);
     initGame->setIconSize(QSize(150, 75));
@@ -52,7 +49,7 @@ void GameScene::Pause_Init() {
             });
         });
     });
-    MyPushButton *btn_exit = new MyPushButton(":/photo/start.png");//添加离开按钮
+    MyPushButton *btn_exit = new MyPushButton(":/Res/start.png");//添加离开按钮
     btn_exit->setParent(Pause);
     btn_exit->setFixedSize(150, 75);
     btn_exit->setIconSize(QSize(150, 75));
@@ -101,10 +98,10 @@ void GameScene::timerEvent(QTimerEvent *event) {
 void GameScene::keyPressEvent(QKeyEvent *event) {
     if (!mary->is_die) {
         switch (event->key()) {
-            case Qt::Key_A:
+            case Qt::Key_Right:
                 mary->direction = key = "right";
                 break;
-            case Qt::Key_D:
+            case Qt::Key_Left:
                 mary->direction = key = "left";
                 break;
             case Qt::Key_Z:
@@ -168,8 +165,8 @@ void GameScene::keyReleaseEvent(QKeyEvent *event) {
 void GameScene::paintEvent(QPaintEvent *) {
     QPainter painter(this);
     if (!game_start) {
-        painter.drawPixmap(0, 0, 800, 550, QPixmap(":/photo/blackground2.png"));
-        painter.drawPixmap(300, 250, 40, 40, QPixmap(":/photo/life.png"));
+        painter.drawPixmap(0, 0, 800, 550, QPixmap(":/Res/blackground2.png"));
+        painter.drawPixmap(300, 250, 40, 40, QPixmap(":/Res/life.png"));
         painter.setPen(QColor(255, 255, 255));
         QFont font;
         font.setPointSize(35);
@@ -184,100 +181,100 @@ void GameScene::paintEvent(QPaintEvent *) {
         painter.drawText(400, 287, QString::number(mary->life));
         return;
     }
-    painter.drawPixmap(0, 0, 800, 550, QPixmap(":/photo/sky.png"));//画背景
-    painter.drawPixmap(230, 10, QPixmap(":/photo/coin.png"), 0, 0, 30, 30);
-    painter.drawPixmap(380, 10, 30, 30, QPixmap(":/photo/score.png"));
+    painter.drawPixmap(0, 0, 800, 550, QPixmap(":/Res/sky.png"));//画背景
+    painter.drawPixmap(230, 10, QPixmap(":/Res/coin.png"), 0, 0, 30, 30);
+    painter.drawPixmap(380, 10, 30, 30, QPixmap(":/Res/score.png"));
     painter.setFont(QFont("Times", 45, QFont::Bold));
     painter.drawText(280, 38, QString::number(unknown->coin));
     painter.drawText(430, 38, QString::number(score));
     for (int i = 1; i <= mary->life; i++) {
-        painter.drawPixmap(800 - i * 35, 10, 30, 30, QPixmap(":/photo/life.png"));
+        painter.drawPixmap(800 - i * 35, 10, 30, 30, QPixmap(":/Res/life.png"));
     }
-    painter.drawPixmap(10, 10, 30, 30, QPixmap(":/photo/time.png"));
+    painter.drawPixmap(10, 10, 30, 30, QPixmap(":/Res/time.png"));
     painter.drawText(50, 38, QString::number(time, 'f', 1));
-    painter.drawPixmap(0, 500, QPixmap(":/photo/ground.png"), mary->ground_state, 0, 800, 45);//画地板
+    painter.drawPixmap(0, 500, QPixmap(":/Res/ground.png"), mary->ground_state, 0, 800, 45);//画地板
     if (mary->x > 7800) {
         QVector < QVector < int >> ::iterator
         it = castle->m.begin()->begin();
-        painter.drawPixmap(*it->begin() - mary->x, *(it->begin() + 1), 200, 200, QPixmap(":/photo/castle.png"));
+        painter.drawPixmap(*it->begin() - mary->x, *(it->begin() + 1), 200, 200, QPixmap(":/Res/castle.png"));
     }
     if (mushroom->mushroom_state != 0) {
         painter.drawPixmap(mushroom->mushroom_x - mary->x, mushroom->mushroom_y, 40, 40,
-                           QPixmap(":/photo/mushroom" + QString::number(mary->colour) + ".png"));
+                           QPixmap(":/Res/mushroom" + QString::number(mary->colour) + ".png"));
     }
     for (QVector < QVector < int >> ::iterator it = brick->m.begin()->begin(); it != brick->m.begin()->end();
     it++)
     {
         if (*(it->begin()) - mary->x > -50 && *(it->begin()) - mary->x < 800 && *(it->begin() + 2) == 1) {
-            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 50, 40, QPixmap(":/photo/brick1.png"));
+            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 50, 40, QPixmap(":/Res/brick1.png"));
         }
     }
     for (QVector < QVector < int >> ::iterator it = unknown->m.begin()->begin(); it != unknown->m.begin()->end();
     it++)
     {
         if (*(it->begin()) - mary->x > -50 && *(it->begin()) - mary->x < 800 && *(it->begin() + 2) != 0) {
-            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), QPixmap(":/photo/unknown.png"),
+            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), QPixmap(":/Res/unknown.png"),
                                unknown->unknown_state, 0, 50, 40);
         } else if (*(it->begin()) - mary->x > -50 && *(it->begin()) - mary->x < 800 && *(it->begin() + 2) == 0) {
             painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 50, 40,
-                               QPixmap(":/photo/unknown_after.png"));
+                               QPixmap(":/Res/unknown_after.png"));
         }
     }
     if (unknown->coin_state > 0) {
-        painter.drawPixmap(unknown->coin_x - mary->x, unknown->coin_y, QPixmap(":/photo/coin.png"), unknown->coin_state,
+        painter.drawPixmap(unknown->coin_x - mary->x, unknown->coin_y, QPixmap(":/Res/coin.png"), unknown->coin_state,
                            0, 30, 33);
     }
     for (QVector < QVector < int >> ::iterator it = pipe->long_m.begin()->begin(); it != pipe->long_m.begin()->end();
     it++)
     {
         if (*(it->begin()) - mary->x > -80 && *(it->begin()) - mary->x < 800) {
-            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 80, 100, QPixmap(":/photo/pipe_long.png"));
+            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 80, 100, QPixmap(":/Res/pipe_long.png"));
         }
     }
     for (QVector < QVector < int >> ::iterator it = pipe->short_m.begin()->begin(); it != pipe->short_m.begin()->end();
     it++)
     {
         if (*(it->begin()) - mary->x > -80 && *(it->begin()) - mary->x < 800) {
-            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 80, 50, QPixmap(":/photo/pipe_short.png"));
+            painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 80, 50, QPixmap(":/Res/pipe_short.png"));
         }
     }
     if (brick->shatter_state > 0) {
         painter.drawPixmap(brick->left_shatter_x - mary->x, brick->left_shatter_y - 20, 30, 30,
-                           QPixmap(":/photo/brick2.png"));
+                           QPixmap(":/Res/brick2.png"));
         painter.drawPixmap(brick->left_shatter_x - mary->x, brick->left_shatter_y + 50, 30, 30,
-                           QPixmap(":/photo/brick2.png"));
+                           QPixmap(":/Res/brick2.png"));
         painter.drawPixmap(brick->right_shatter_x - mary->x, brick->right_shatter_y - 20, 30, 30,
-                           QPixmap(":/photo/brick3.png"));
+                           QPixmap(":/Res/brick3.png"));
         painter.drawPixmap(brick->right_shatter_x - mary->x, brick->right_shatter_y + 50, 30, 30,
-                           QPixmap(":/photo/brick3.png"));
+                           QPixmap(":/Res/brick3.png"));
     }
     for (QVector < QVector < int >> ::iterator it = master->m.begin()->begin(); it != master->m.begin()->end();
     it++)
     {
         if (*(it->begin()) - mary->x > -80 && *(it->begin()) - mary->x < 800 && *(it->begin() + 2) != 0) {
             painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1), 40, 40,
-                               QPixmap(":/photo/master_" + QString::number(*(it->begin() + 3)) + ".png"));
+                               QPixmap(":/Res/master_" + QString::number(*(it->begin() + 3)) + ".png"));
         } else if (*(it->begin()) - mary->x > -80 && *(it->begin()) - mary->x < 800 && *(it->begin() + 2) == 0 &&
                    *(it->begin() + 4) == 1) {
             painter.drawPixmap(*(it->begin()) - mary->x, *(it->begin() + 1) + 20, 40, 20,
-                               QPixmap(":/photo/master_" + QString::number(*(it->begin() + 3)) + ".png"));
+                               QPixmap(":/Res/master_" + QString::number(*(it->begin() + 3)) + ".png"));
         }
     }
     if (mary->is_die) {
-        painter.drawPixmap(mary->map_x, mary->y, QPixmap(":/photo/mary_die.png"), mary->die_pix_state, 0, 50, 50);//画角色
+        painter.drawPixmap(mary->map_x, mary->y, QPixmap(":/Res/mary_die.png"), mary->die_pix_state, 0, 50, 50);//画角色
     } else if (!mary->is_die && mary->invincible_state % 2 == 0 && !is_win) {
         painter.drawPixmap(mary->map_x, mary->y,
-                           QPixmap(":/photo/walk_" + mary->direction + QString::number(mary->colour) + ".png"),
+                           QPixmap(":/Res/walk_" + mary->direction + QString::number(mary->colour) + ".png"),
                            mary->walk_state, 0, 45, 45);//画角色
     }
     if (fire->is_have) {
-        painter.drawPixmap(fire->x - mary->x, fire->y, 20, 20, QPixmap(":/photo/fire.png"));
+        painter.drawPixmap(fire->x - mary->x, fire->y, 20, 20, QPixmap(":/Res/fire.png"));
     }
     if (fire->is_have1) {
-        painter.drawPixmap(fire->x1 - mary->x, fire->y1, 20, 20, QPixmap(":/photo/fire.png"));
+        painter.drawPixmap(fire->x1 - mary->x, fire->y1, 20, 20, QPixmap(":/Res/fire.png"));
     }
     if (fire->is_have2) {
-        painter.drawPixmap(fire->x2 - mary->x, fire->y2, 20, 20, QPixmap(":/photo/fire.png"));
+        painter.drawPixmap(fire->x2 - mary->x, fire->y2, 20, 20, QPixmap(":/Res/fire.png"));
     }
 }
 
@@ -297,7 +294,7 @@ void GameScene::Game_Init() {
     time = 300.0;
     is_kill_timer2 = true;
     game_start = false;
-    master->Master_State(mary, pipe, brick);
+    master->fuckLd(mary, pipe, brick);
     fire->Fire_Move(mary, pipe, brick, master);
 }
 
@@ -313,7 +310,7 @@ void GameScene::Pause_Game_Init() {
     brick->BrickInit();
     mushroom->MushRoom_Init();
     master->Master_Init();
-    master->Master_State(mary, pipe, brick);
+    master->fuckLd(mary, pipe, brick);
 
 }
 

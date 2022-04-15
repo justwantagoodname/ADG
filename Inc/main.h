@@ -9,6 +9,6 @@
 #include <QPushButton>
 #include <QWindow>
 
-#include "MyPushButton.h"
+#include "MainWindow.h"
 
 #endif //AGD_MAIN_H

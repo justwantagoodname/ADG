@@ -24,12 +24,27 @@ find_package(Qt6 COMPONENTS
 
 include_directories("Inc")
 
-set(INC_MOC Inc/main.h)
+set(INC_MOC Inc/main.h
+        Src/Brick.cpp Inc/Brick.h
+        Src/Castle.cpp Inc/Castle.h
+        Src/Fire.cpp Inc/Fire.h
+        Src/GameHelp.cpp Inc/GameHelp.h
+        Src/GamePause.cpp Inc/GamePause.h
+        Src/GameScene.cpp Inc/GameScene.h
+        Src/MainWindow.cpp Inc/MainWindow.h
+        Src/Mary.cpp Inc/Mary.h
+        Src/Master.cpp Inc/Master.h
+        Src/mushroom.cpp Inc/mushroom.h
+        Src/MyPushButton.cpp Inc/MyPushButton.h
+        Src/pipe.cpp Inc/pipe.h
+        Src/unknown.cpp Inc/unknown.h)
 set(CPP_MOC Src/main.cpp)
 qt_wrap_cpp(INC_MOC)
 qt_wrap_cpp(CPP_MOC)
 
-set(INC_UI Src/MyPushButton.cpp Inc/MyPushButton.h Src/MainWindow.cpp Inc/MainWindow.h Inc/mainwindow.ui Src/GameScene.cpp Inc/GameScene.h Src/GameHelp.cpp Inc/GameHelp.h Src/Mary.cpp Inc/Mary.h)
+set(INC_UI
+        Inc/mainwindow.ui
+        )
 qt_wrap_ui(INC_UI)
 
 add_executable(AGD ${CPP_MOC} ${INC_MOC} ${INC_UI})

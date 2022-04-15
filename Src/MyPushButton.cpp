@@ -1,9 +1,4 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
-
-#include "MyPushButton.h"
+#include "mypushbutton.h"
 
 MyPushButton::MyPushButton(QString normalImg) {
     this->normalImgPath = normalImg;

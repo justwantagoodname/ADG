@@ -1,7 +1,3 @@
-//
-// Created by SamChen on 2022/4/13.
-//
-
 #include "mary.h"
 #include<QDebug>
 
@@ -93,3 +89,4 @@ void Mary::Mary_die() {
     }
 
 }
+
