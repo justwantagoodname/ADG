@@ -1,4 +1,4 @@
-#include "mary.h"
+#include "Mary.h"
 #include<QDebug>
 
 Mary::Mary() {

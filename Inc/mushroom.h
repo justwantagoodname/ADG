@@ -2,9 +2,9 @@
 #define MUSHROOM_H
 #include<QVector>
 #include<QMap>
-#include"brick.h"
+#include"Brick.h"
 #include"unknown.h"
-#include"mary.h"
+#include"Mary.h"
 class MushRoom
 {
 public:

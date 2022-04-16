@@ -1,4 +1,4 @@
-#include "brick.h"
+#include "Brick.h"
 #include<iostream>
 
 using namespace std;

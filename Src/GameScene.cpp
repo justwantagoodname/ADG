@@ -1,4 +1,4 @@
-#include "gamescene.h"
+#include "GameScene.h"
 
 GameScene::GameScene(QWidget *parent) : QWidget(parent) {
     setWindowTitle("超级玛丽");//设置标题

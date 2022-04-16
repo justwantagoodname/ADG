@@ -8,16 +8,16 @@
 #include<QTimer>
 #include<QKeyEvent>
 #include<QDialog>
-#include"mary.h"
-#include"brick.h"
+#include"Mary.h"
+#include"Brick.h"
 #include"unknown.h"
 #include"mushroom.h"
-#include"master.h"
+#include"Master.h"
 #include"pipe.h"
-#include"gamepause.h"
-#include"mypushbutton.h"
-#include"fire.h"
-#include"castle.h"
+#include"GamePause.h"
+#include"MyPushButton.h"
+#include"Fire.h"
+#include"Castle.h"
 
 class GameScene : public QWidget {
     Q_OBJECT

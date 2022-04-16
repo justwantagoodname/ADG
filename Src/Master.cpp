@@ -1,5 +1,5 @@
-#include "master.h"
-#include"mary.h"
+#include "Master.h"
+#include"Mary.h"
 #include"QDebug"
 
 Master::Master() {

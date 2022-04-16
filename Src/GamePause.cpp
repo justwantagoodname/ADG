@@ -1,6 +1,6 @@
-#include "gamepause.h"
+#include "GamePause.h"
 #include<QKeyEvent>
-#include"mypushbutton.h"
+#include"MyPushButton.h"
 #include<QTimer>
 #include<QPainter>
 

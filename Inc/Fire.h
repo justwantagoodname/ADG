@@ -1,10 +1,10 @@
 #ifndef FIRE_H
 #define FIRE_H
 
-#include"mary.h"
+#include"Mary.h"
 #include"pipe.h"
-#include"brick.h"
-#include"master.h"
+#include"Brick.h"
+#include"Master.h"
 
 class Fire {
 public:

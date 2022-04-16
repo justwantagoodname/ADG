@@ -5,9 +5,9 @@
 #include<QPainter>
 #include<QTimer>
 #include "ui_mainwindow.h"
-#include"mypushbutton.h"
-#include"gamescene.h"
-#include"gamehelp.h"
+#include"MyPushButton.h"
+#include"GameScene.h"
+#include"GameHelp.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

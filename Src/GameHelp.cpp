@@ -1,5 +1,5 @@
-#include "gamehelp.h"
-#include"mypushbutton.h"
+#include "GameHelp.h"
+#include"MyPushButton.h"
 #include<QTimer>
 
 GameHelp::GameHelp(QWidget *parent) : QWidget(parent) {

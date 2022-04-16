@@ -1,4 +1,4 @@
-#include "castle.h"
+#include "Castle.h"
 
 Castle::Castle() {
     Castle_Init();

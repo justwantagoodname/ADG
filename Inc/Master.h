@@ -4,9 +4,9 @@
 #include<QMap>
 #include<QVector>
 #include<QString>
-#include"mary.h"
+#include"Mary.h"
 #include"pipe.h"
-#include"brick.h"
+#include"Brick.h"
 
 class Master {
 public:

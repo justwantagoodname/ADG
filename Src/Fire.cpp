@@ -1,4 +1,4 @@
-#include "fire.h"
+#include "Fire.h"
 #include<QDebug>
 
 Fire::Fire() {
