@@ -6,7 +6,7 @@ Fire::Fire() {
 }
 
 void Fire::Fire_Init() {
-    bullet = 500;
+    bullet = 0;
     bullet_num = 0;
 }
 
@@ -113,4 +113,8 @@ void Fire::Fire_state() {
             ++itd;
         }
     }
+}
+
+void Fire::Load_Bullet(int num) {
+    bullet += num;
 }

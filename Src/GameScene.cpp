@@ -200,8 +200,13 @@ void GameScene::paintEvent(QPaintEvent *) {
         painter.drawPixmap(*it->begin() - mary->x, *(it->begin() + 1), 200, 200, QPixmap("./Res/castle.png"));
     }
     if (mushroom->mushroom_state != 0) {
-        painter.drawPixmap(mushroom->mushroom_x - mary->x, mushroom->mushroom_y, 40, 40,
-                           QPixmap("./Res/mushroom" + QString::number(mary->colour) + ".png"));
+        if (mushroom->is_bullet) {
+            painter.drawPixmap(mushroom->mushroom_x - mary->x, mushroom->mushroom_y, 40, 40,
+                               QPixmap("./Res/bullet.png"));
+        } else {
+            painter.drawPixmap(mushroom->mushroom_x - mary->x, mushroom->mushroom_y, 40, 40,
+                               QPixmap("./Res/mushroom" + QString::number(mary->colour) + ".png"));
+        }
     }
     for (QVector < QVector < int >> ::iterator it = brick->m.begin()->begin(); it != brick->m.begin()->end();
     it++)
@@ -351,10 +356,10 @@ void GameScene::Jump_Collision() {
                 score += 10;
                 unknown->Unknown_crash(it);
             } else if (*(it->begin() + 2) == 2) {
-                mushroom->MushRoom_Move(it, unknown, brick, mary, false);
-            } else if (*(it->begin() + 2) == -1) {
+                mushroom->MushRoom_Move(it, fire, unknown, brick, mary, false);
+            } else if (*(it->begin() + 2) == 3) {
                 // Bullet
-                mushroom->MushRoom_Move(it, unknown, brick, mary, true);
+                mushroom->MushRoom_Move(it, fire, unknown, brick, mary, true);
             }
             mary->y = *(it->begin() + 1) + 40;
             *(it->begin() + 2) = 0;

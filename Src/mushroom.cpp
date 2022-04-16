@@ -15,12 +15,17 @@ void MushRoom::MushRoom_Init(){
 
 }
 
-void MushRoom::MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick *r, Mary *m, bool is_bullet){
+void MushRoom::MushRoom_Move(QVector<QVector<int>>::iterator it, Fire *f, Unknown *u,Brick *r, Mary *m, bool is_bullet){
     unknown = u;
     brick = r;
     mary = m;
+    fire = f;
+    this->is_bullet = is_bullet;
     if (is_bullet) {
         qDebug() << "Hit the bullet";
+        mushroom_x = *it->begin();
+        mushroom_y = *(it->begin() + 1);
+        mushroom_state = 1;
         return ;
     }
     if(mary->colour==1){
@@ -64,7 +69,12 @@ void MushRoom::Move_state(){
     if (mushroom_y >= 460 && mushroom_state != 0) {
         if (mushroom_x - 330 <= mary->x && mushroom_x - 270 >= mary->x && mushroom_y - mary->y == 5) {
             mushroom_state = 0;
-            mary->colour = mushroom_kind + 1;
+            if (is_bullet) {
+                qDebug() << fire->bullet ;
+                fire->Load_Bullet(5);
+            } else {
+                mary->colour = mushroom_kind + 1;
+            }
             mushroom_fall_down_distance = 19;
             return;
         }
