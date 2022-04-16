@@ -20,7 +20,7 @@ public:
     MushRoom();
     void MushRoom_Init();
     void Move_state();
-    void MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick *r, Mary *m);
+    void MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick *r, Mary *m, bool is_bullet);
 };
 
 #endif // MUSHROOM_H

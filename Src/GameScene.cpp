@@ -5,7 +5,7 @@ GameScene::GameScene(QWidget *parent) : QWidget(parent) {
     setFixedSize(800, 545);//设置窗口大小
     Game_Init();
     Pause_Init();
-    QTimer::singleShot(1500, this, [=]() {
+    QTimer::singleShot(0, this, [=]() {
         timer1 = startTimer(15);
         timer3 = startTimer(40);
         game_start = true;
@@ -342,7 +342,10 @@ void GameScene::Jump_Collision() {
                 score += 10;
                 unknown->Unknown_crash(it);
             } else if (*(it->begin() + 2) == 2) {
-                mushroom->MushRoom_Move(it, unknown, brick, mary);
+                mushroom->MushRoom_Move(it, unknown, brick, mary, false);
+            } else if (*(it->begin() + 2) == -1) {
+                // Bullet
+                mushroom->MushRoom_Move(it, unknown, brick, mary, true);
             }
             mary->y = *(it->begin() + 1) + 40;
             *(it->begin() + 2) = 0;
@@ -421,7 +424,7 @@ void GameScene::Move_Collision() {
 }
 
 void GameScene::Fall_Down(int &y) {
-    qDebug() << mary->distance;
+//    qDebug() << mary->distance;
     if (mary->height - mary->distance < 0) {
         if (y > 455) {
             y = 455;

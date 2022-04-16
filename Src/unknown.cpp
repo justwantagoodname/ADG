@@ -11,7 +11,7 @@ void Unknown::Unknown_Init() {
     unknown_state = 0;
     coin_state = 0;
     coin = 0;
-    int arr[38][3] = {{800,  350, 1},
+    int arr[38][3] = {{800,  350, 3},
                       {1050, 350, 2},
                       {1100, 200, 1},
                       {1150, 350, 1},
@@ -77,7 +77,7 @@ void Unknown::Unknown_crash(QVector < QVector < int >> ::iterator it){
 void Unknown::Crash_state() {
 
     if (coin_state > 0 && coin_state < 240) {
-        cout << coin_y << endl;
+        //cout << coin_y << endl;
         coin_state += 30;
         coin_y -= 20;
     } else if (coin_state == 240) {

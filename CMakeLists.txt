@@ -37,7 +37,7 @@ set(INC_MOC Inc/main.h
         Src/mushroom.cpp Inc/mushroom.h
         Src/MyPushButton.cpp Inc/MyPushButton.h
         Src/pipe.cpp Inc/pipe.h
-        Src/unknown.cpp Inc/unknown.h)
+        Src/unknown.cpp Inc/unknown.h Inc/Bullet.h)
 set(CPP_MOC Src/main.cpp)
 qt_wrap_cpp(INC_MOC)
 qt_wrap_cpp(CPP_MOC)

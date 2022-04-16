@@ -15,10 +15,15 @@ void MushRoom::MushRoom_Init(){
 
 }
 
-void MushRoom::MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick *r, Mary *m){
+void MushRoom::MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick *r, Mary *m, bool is_bullet){
     unknown = u;
     brick = r;
     mary = m;
+    if (is_bullet) {
+
+        qDebug() << "Hit the bullet";
+        return ;
+    }
     if(mary->colour==1){
     mushroom_kind = 1;
     }else{
