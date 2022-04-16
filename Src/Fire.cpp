@@ -35,6 +35,8 @@ void Fire::Fire_xy() {
     }
 }
 
+int count = 0;
+
 void Fire::Fire_state() {
     for (int i = 0; i < bullet_num; ++i) {
         if (bullet_direction[i] == 1) {
