@@ -30,6 +30,7 @@ public:
     void Fire_Move(Mary *m, Pipe *p, Brick *r, Master *ms);
     void Fire_xy();
     void Fire_state();
+    void Load_Bullet(int num);
 };
 
 #endif // FIRE_H

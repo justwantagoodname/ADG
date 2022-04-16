@@ -5,6 +5,7 @@
 #include"Brick.h"
 #include"unknown.h"
 #include"Mary.h"
+#include "Fire.h"
 class MushRoom
 {
 public:
@@ -18,10 +19,11 @@ public:
     Brick *brick;
     Unknown *unknown;
     Mary *mary;
+    Fire *fire;
     MushRoom();
     void MushRoom_Init();
     void Move_state();
-    void MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick *r, Mary *m, bool is_bullet);
+    void MushRoom_Move(QVector<QVector<int>>::iterator it,Fire *f,Unknown *u,Brick *r, Mary *m, bool is_bullet);
 };
 
 #endif // MUSHROOM_H
