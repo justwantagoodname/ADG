@@ -276,15 +276,6 @@ void GameScene::paintEvent(QPaintEvent *) {
             ++ity;
         }
     }
-//    if (fire->is_have) {
-//        painter.drawPixmap(fire->x - mary->x, fire->y, 20, 20, QPixmap("./Res/fire.png"));
-//    }
-//    if (fire->is_have1) {
-//        painter.drawPixmap(fire->x1 - mary->x, fire->y1, 20, 20, QPixmap("./Res/fire.png"));
-//    }
-//    if (fire->is_have2) {
-//        painter.drawPixmap(fire->x2 - mary->x, fire->y2, 20, 20, QPixmap("./Res/fire.png"));
-//    }
 }
 
 void GameScene::Game_Init() {
