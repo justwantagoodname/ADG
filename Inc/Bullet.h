@@ -5,7 +5,12 @@
 #ifndef AGD_BULLET_H
 #define AGD_BULLET_H
 #include "mushroom.h"
-class Bullet: public MushRoom {
-    int x,y;
+class Bullet:  {
+    int bullet_x, bullet_y;
+    int bullet_state;
+
+    Bullet() {
+
+    }
 };
 #endif //AGD_BULLET_H

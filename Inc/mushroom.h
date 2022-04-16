@@ -14,6 +14,7 @@ public:
     int mushroom_y;
     int mushroom_state;
     int mushroom_fall_down_distance;
+    int is_bullet;
     Brick *brick;
     Unknown *unknown;
     Mary *mary;

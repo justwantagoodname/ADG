@@ -20,7 +20,6 @@ void MushRoom::MushRoom_Move(QVector<QVector<int>>::iterator it,Unknown *u,Brick
     brick = r;
     mary = m;
     if (is_bullet) {
-
         qDebug() << "Hit the bullet";
         return ;
     }
