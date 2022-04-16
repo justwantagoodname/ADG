@@ -199,13 +199,15 @@ void GameScene::paintEvent(QPaintEvent *) {
         it = castle->m.begin()->begin();
         painter.drawPixmap(*it->begin() - mary->x, *(it->begin() + 1), 200, 200, QPixmap("./Res/castle.png"));
     }
-    if (mushroom->mushroom_state != 0) {
-        if (mushroom->is_bullet) {
-            painter.drawPixmap(mushroom->mushroom_x - mary->x, mushroom->mushroom_y, 40, 40,
-                               QPixmap("./Res/bullet.png"));
-        } else {
-            painter.drawPixmap(mushroom->mushroom_x - mary->x, mushroom->mushroom_y, 40, 40,
-                               QPixmap("./Res/mushroom" + QString::number(mary->colour) + ".png"));
+    for (int i = 0;i < mushroom->mushroom_num;i++) {
+        if (mushroom->mushroom_state[i] != 0) {
+            if (mushroom->is_bullet[i]) {
+                painter.drawPixmap(mushroom->mushroom_x[i] - mary->x, mushroom->mushroom_y[i], 40, 40,
+                                   QPixmap("./Res/bullet.png"));
+            } else {
+                painter.drawPixmap(mushroom->mushroom_x[i] - mary->x, mushroom->mushroom_y[i], 40, 40,
+                                   QPixmap("./Res/mushroom" + QString::number(mary->colour) + ".png"));
+            }
         }
     }
     for (QVector < QVector < int >> ::iterator it = brick->m.begin()->begin(); it != brick->m.begin()->end();
