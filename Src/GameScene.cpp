@@ -127,7 +127,8 @@ void GameScene::keyPressEvent(QKeyEvent *event) {
                     mary->life++;
                 }
             case Qt::Key_X:
-                if (!is_press_x && !mary->is_jump && mary->is_jump_end && mary->colour == 3) {
+                if (!is_press_x) {
+//                if (!is_press_x && !mary->is_jump && mary->is_jump_end && mary->colour == 3) {
                     is_press_x = true;
                     fire->Fire_xy();
                 }
@@ -267,15 +268,23 @@ void GameScene::paintEvent(QPaintEvent *) {
                            QPixmap("./Res/walk_" + mary->direction + QString::number(mary->colour) + ".png"),
                            mary->walk_state, 0, 45, 45);//画角色
     }
-    if (fire->is_have) {
-        painter.drawPixmap(fire->x - mary->x, fire->y, 20, 20, QPixmap("./Res/fire.png"));
+    if (fire->bullet_num > 0) {
+        QVector<int>::iterator itx = fire->bullet_x.begin(), ity = fire->bullet_y.begin();
+        while (itx != fire->bullet_x.end()) {
+            painter.drawPixmap(*itx - mary->x, *ity, 20, 20, QPixmap("./Res/fire.png"));
+            ++itx;
+            ++ity;
+        }
     }
-    if (fire->is_have1) {
-        painter.drawPixmap(fire->x1 - mary->x, fire->y1, 20, 20, QPixmap("./Res/fire.png"));
-    }
-    if (fire->is_have2) {
-        painter.drawPixmap(fire->x2 - mary->x, fire->y2, 20, 20, QPixmap("./Res/fire.png"));
-    }
+//    if (fire->is_have) {
+//        painter.drawPixmap(fire->x - mary->x, fire->y, 20, 20, QPixmap("./Res/fire.png"));
+//    }
+//    if (fire->is_have1) {
+//        painter.drawPixmap(fire->x1 - mary->x, fire->y1, 20, 20, QPixmap("./Res/fire.png"));
+//    }
+//    if (fire->is_have2) {
+//        painter.drawPixmap(fire->x2 - mary->x, fire->y2, 20, 20, QPixmap("./Res/fire.png"));
+//    }
 }
 
 void GameScene::Game_Init() {
