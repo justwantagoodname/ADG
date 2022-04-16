@@ -2,7 +2,7 @@
 #define FIRE_H
 
 #include"Mary.h"
-#include"pipe.h"
+#include"Pipe.h"
 #include"Brick.h"
 #include"Master.h"
 

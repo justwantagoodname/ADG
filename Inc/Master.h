@@ -5,7 +5,7 @@
 #include<QVector>
 #include<QString>
 #include"Mary.h"
-#include"pipe.h"
+#include"Pipe.h"
 #include"Brick.h"
 
 class Master {

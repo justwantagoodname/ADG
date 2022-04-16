@@ -34,9 +34,9 @@ set(INC_MOC Inc/main.h
         Src/MainWindow.cpp Inc/MainWindow.h
         Src/Mary.cpp Inc/Mary.h
         Src/Master.cpp Inc/Master.h
-        Src/mushroom.cpp Inc/mushroom.h
+        Src/MushRoom.cpp Inc/MushRoom.h
         Src/MyPushButton.cpp Inc/MyPushButton.h
-        Src/pipe.cpp Inc/pipe.h
+        Src/Pipe.cpp Inc/Pipe.h
         Src/unknown.cpp Inc/unknown.h Inc/Bullet.h)
 set(CPP_MOC Src/main.cpp)
 qt_wrap_cpp(INC_MOC)

@@ -1,4 +1,4 @@
-#include "mushroom.h"
+#include "MushRoom.h"
 #include<QDebug>
 MushRoom::MushRoom()
 {
