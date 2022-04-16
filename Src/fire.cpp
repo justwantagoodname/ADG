@@ -20,7 +20,6 @@ void Fire::Fire_Move(Mary *m, Pipe *p, Brick *r, Master *ms) {
 void Fire::Fire_xy() {
     if (bullet > 0) {
         --bullet;
-        qDebug() << "fire xy";
         if (mary->direction == "right") {
             bullet_x.append(mary->x + 350);
             bullet_direction.append(1);
