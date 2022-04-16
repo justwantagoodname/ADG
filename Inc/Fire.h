@@ -8,13 +8,6 @@
 
 class Fire {
 public:
-//    int x, y, direction;
-//    int x1, y1, direction1;
-//    int x2, y2, direction2;
-//    bool is_have;
-//    bool is_have1;
-//    bool is_have2;
-//    bool is_fire_max;
     QVector<int> bullet_x;
     QVector<int> bullet_y;
     QVector<int> bullet_direction;
