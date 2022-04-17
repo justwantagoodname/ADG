@@ -3,7 +3,7 @@
 GameScene::GameScene(QWidget *parent) : QWidget(parent) {
     config = new ConfigFile("../config.json");
     setWindowTitle(config->getConfig("title").toString());//设置标题
-    setFixedSize(850, 545);//设置窗口大小
+    setFixedSize(800, 545);//设置窗口大小
     Game_Init();
     Pause_Init();
     QTimer::singleShot(0, this, [=]() {
@@ -184,16 +184,20 @@ void GameScene::paintEvent(QPaintEvent *) {
         return;
     }
     painter.drawPixmap(0, 0, 800, 550, QPixmap("./Res/sky.png"));//画背景
-    painter.drawPixmap(230, 10, QPixmap("./Res/coin.png"), 0, 0, 30, 30);
-    painter.drawPixmap(380, 10, 30, 30, QPixmap("./Res/score.png"));
-    painter.setFont(QFont("Times", 45, QFont::Bold));
-    painter.drawText(280, 38, QString::number(unknown->coin));
-    painter.drawText(430, 38, QString::number(score));
+    painter.drawPixmap(180, 10, QPixmap("./Res/coin.png"), 0, 0, 30, 30);
+    painter.drawPixmap(290, 10, 30, 30, QPixmap("./Res/score.png"));
+
+
+    painter.setFont(QFont("Times", 35, QFont::Bold));
+    painter.drawText(400, 43, "B:");
+    painter.drawText(460,43, QString::number(fire->bullet));
+    painter.drawText(235, 43, QString::number(unknown->coin));
+    painter.drawText(345, 43, QString::number(score));
     for (int i = 1; i <= mary->life; i++) {
         painter.drawPixmap(800 - i * 35, 10, 30, 30, QPixmap("./Res/life.png"));
     }
     painter.drawPixmap(10, 10, 30, 30, QPixmap("./Res/time.png"));
-    painter.drawText(50, 38, QString::number(time, 'f', 1));
+    painter.drawText(50, 43, QString::number(time, 'f', 1));
     painter.drawPixmap(0, 500, QPixmap("./Res/ground.png"), mary->ground_state, 0, 800, 45);//画地板
     if (mary->x > 7800) {
         QVector < QVector < int >> ::iterator
