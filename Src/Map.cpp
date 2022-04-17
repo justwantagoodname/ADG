@@ -3,6 +3,7 @@
 //
 
 #include "Map.h"
+#include "Brick.h"
 
 Map::Map(QJsonObject *maps, QObject *parent): QObject(parent) {
 //    qDebug() << "Read" << maps->value("1").toString();
@@ -13,13 +14,13 @@ Map::~Map() noexcept {
     delete map;
 }
 
-void Map::Map_Init(Unknown *unknown) {
+void Map::Map_Init(Unknown *unknown, Brick *brick) {
    auto objects = map->getConfig("data").toObject();
    auto unknown_map = objects.value("unknown").toArray();
    QVector<QVector<int> > v2;
    QVector<int> v;
+
    for (const auto &item : unknown_map) {
-//       qDebug() << item;
        for (const auto &data : item.toArray()) {
            v.push_back(data.toInt());
        }
@@ -27,5 +28,19 @@ void Map::Map_Init(Unknown *unknown) {
        v.clear();
    }
    unknown->m.insert(1, v2);
+
+   v2.clear();
+   auto  brick_map = objects.value("brick").toArray();
+    for (const auto &item : brick_map) {
+        for (const auto &data : item.toArray()) {
+            v.push_back(data.toInt());
+        }
+        v.push_back(1);
+//        qDebug() << v;
+        v2.push_back(v);
+        v.clear();
+    }
+//    qDebug() << v2;
+    brick->m.insert(1, v2);
 }
 

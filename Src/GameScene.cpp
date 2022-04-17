@@ -310,7 +310,7 @@ void GameScene::Game_Init() {
     time = 300.0;
     is_kill_timer2 = true;
     game_start = false;
-    map->Map_Init(unknown);
+    map->Map_Init(unknown, brick);
     master->fuckLd(mary, pipe, brick);
     fire->Fire_Move(mary, pipe, brick, master);
 }
