@@ -19,13 +19,13 @@ void Pipe::Pipe_Init() {
         v.clear();
     }
     long_m.insert(1, v2);
-    v2.clear();
-    for (int i = 0; i < 3; i++) {
-        v.push_back(arr_short[i][0]);
-        v.push_back(arr_short[i][1]);
-        v2.push_back(v);
-        v.clear();
-    }
-    short_m.insert(1, v2);
-    v2.clear();
+//    v2.clear();
+//    for (int i = 0; i < 3; i++) {
+//        v.push_back(arr_short[i][0]);
+//        v.push_back(arr_short[i][1]);
+//        v2.push_back(v);
+//        v.clear();
+//    }
+//    short_m.insert(1, v2);
+//    v2.clear();
 }

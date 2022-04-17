@@ -8,6 +8,8 @@
 #include "Config.h"
 #include "unknown.h"
 #include "Brick.h"
+#include "Castle.h"
+#include "Master.h"
 
 class Map: public QObject{
 Q_OBJECT;
@@ -15,6 +17,6 @@ Q_OBJECT;
 public:
     Map(QJsonObject *maps, QObject *parent = nullptr);
     ~Map();
-    void Map_Init(Unknown *unknown, Brick *brick);
+    void Map_Init(Unknown *unknown, Brick *brick, Castle *castle, Master *master, Pipe *pipe);
 };
 #endif //AGD_MAP_H
