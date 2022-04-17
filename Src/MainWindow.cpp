@@ -3,9 +3,12 @@ MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
+    config = new ConfigFile("../config.json");
+
     ui->setupUi(this);
     this->setFixedSize(800,545);
-    this->setWindowTitle("超级玛丽");
+    auto title = config->getConfig("title").toString();
+    this->setWindowTitle(title);
     QApplication::setWindowIcon(QIcon("./Res/icon.png"));//设置图标
     MyPushButton *start_btn=new MyPushButton("./Res/end.png");//设置开始按钮
     start_btn->setParent(this);

@@ -23,11 +23,7 @@ public:
 
     void Crash_state();
 
-    void Unknown_crash(QVector<QVector < int>>
-
-    ::
-    iterator it
-    );
+    void Unknown_crash(QVector<QVector < int>>::iterator it);
 };
 
 #endif // UNKNOWN_H

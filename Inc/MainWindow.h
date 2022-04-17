@@ -8,6 +8,7 @@
 #include"MyPushButton.h"
 #include"GameScene.h"
 #include"GameHelp.h"
+#include "Config.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -25,5 +26,6 @@ private:
     void paintEvent(QPaintEvent *);
 
     Ui::MainWindow *ui;
+    ConfigFile *config;
 };
 #endif // MAINWINDOW_H

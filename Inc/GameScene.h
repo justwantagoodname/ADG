@@ -18,6 +18,7 @@
 #include"MyPushButton.h"
 #include"Fire.h"
 #include"Castle.h"
+#include "Map.h"
 
 class GameScene : public QWidget {
     Q_OBJECT
@@ -44,6 +45,8 @@ public:
     Master *master;
     Fire *fire;
     Castle *castle;
+    Map *map;
+    ConfigFile *config;
 
     void paintEvent(QPaintEvent *);//绘图事件
     void keyPressEvent(QKeyEvent *event);//键盘按下

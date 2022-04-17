@@ -1,8 +1,9 @@
 #include "GameScene.h"
 
 GameScene::GameScene(QWidget *parent) : QWidget(parent) {
-    setWindowTitle("超级玛丽");//设置标题
-    setFixedSize(800, 545);//设置窗口大小
+    config = new ConfigFile("../config.json");
+    setWindowTitle(config->getConfig("title").toString());//设置标题
+    setFixedSize(850, 545);//设置窗口大小
     Game_Init();
     Pause_Init();
     QTimer::singleShot(0, this, [=]() {
@@ -292,6 +293,8 @@ void GameScene::paintEvent(QPaintEvent *) {
 }
 
 void GameScene::Game_Init() {
+    auto maps = config->getConfig("maps").toObject();
+    map = new Map(&maps);
     mary = new Mary;
     brick = new Brick;
     pipe = new Pipe;
@@ -307,6 +310,7 @@ void GameScene::Game_Init() {
     time = 300.0;
     is_kill_timer2 = true;
     game_start = false;
+    map->Map_Init(unknown);
     master->fuckLd(mary, pipe, brick);
     fire->Fire_Move(mary, pipe, brick, master);
 }
