@@ -24,7 +24,7 @@ void MushRoom::MushRoom_Move(QVector<QVector<int>>::iterator it, Fire *f, Unknow
     this->is_bullet.append(is_bullet);
     mushroom_fall_down_distance.append(19);
     if (is_bullet) {
-        qDebug() << "Hit the bullet";
+//        qDebug() << "Hit the bullet";
         mushroom_x.append(*it->begin());
         mushroom_y.append(*(it->begin() + 1));
         mushroom_state.append(1);
@@ -113,7 +113,7 @@ void MushRoom::Move_state(){
     QVector<int>::iterator it_x = mushroom_x.begin(), it_y = mushroom_y.begin(), it_state = mushroom_state.begin(), it_kind = mushroom_kind.begin(), it_distance = mushroom_fall_down_distance.begin();
     QVector<bool>::iterator it_bullet = is_bullet.begin();
     for (int i = 0;i < mushroom_num; i++) {
-        qDebug() << i;
+//        qDebug() << i;
         Move_One(it_x, it_y, it_state, it_kind, it_distance, it_bullet);
         ++it_x;
         ++it_y;
